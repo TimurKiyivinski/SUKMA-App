@@ -14,12 +14,90 @@ if (Meteor.isCordova) {
 }
 
 Meteor.startup(() => {
+    // Containers
     const container = $('#container')[0]
+    const containerHighlight = $('#container-highlight')
 
-    $.get(`${api}/highlight`, (response) => {
-        const data = response.data
-        data.data.forEach((highlight) => {
-            Blaze.renderWithData(Template.highlight, highlight, container)
-        })
+    // Returns current application context
+    const context = () => $('#container').data('context')
+
+    // Update application states
+    const update = {
+        // Update synchronous lock state
+        'unlocked': true,
+        // Displays loading icon
+        'loading': (enable) => {
+            // TODO Create loading icon
+            if (enable) {
+                update.unlocked = false
+                console.log("Loading...")
+            } else {
+                update.unlocked = true
+                console.log("Loading completed")
+            }
+        },
+        // Refreshes highlights
+        'highlight': (url) => {
+            $.get(url, (response) => {
+                const data = response.data
+
+                // Set pagination urls
+                containerHighlight.data('next', data.next_page_url)
+                containerHighlight.data('prev', data.prev_page_url)
+
+                // Render each instance of highlight
+                data.data.forEach((highlight) => {
+                    Blaze.renderWithData(Template.highlight, highlight, containerHighlight[0])
+                })
+
+                // Remove loading icon
+                update.loading(false)
+            })
+        }
+    }
+
+    // Remove item instances
+    const clear = {
+        'highlight': () => {
+            $('.panel-highlight').remove()
+        }
+    }
+
+    $(window).scroll(() => {
+        // Top
+        if ($(window).scrollTop() == 0) {
+            if (context() == "highlight") {
+                // If there is previous news
+                if (containerHighlight.data('prev') != null && update.unlocked) {
+                    // Display loading icon
+                    update.loading(true)
+
+                    // Clear highlights
+                    clear.highlight()
+
+                    // Update news with next url
+                    update.highlight(`${containerHighlight.data('prev')}`)
+                }
+            }
+        }
+        // Bottom
+        if ($(window).scrollTop() + $(window).height() == $(document).height()) {
+            if (context() == "highlight") {
+                // If there is more news
+                if (containerHighlight.data('next') != null && update.unlocked) {
+                    // Display loading icon
+                    update.loading(true)
+
+                    // Clear highlights
+                    clear.highlight()
+
+                    // Update news with next url
+                    update.highlight(`${containerHighlight.data('next')}`)
+                }
+            }
+        }
     })
+
+    update.highlight(`${api}/highlight`)
+
 })

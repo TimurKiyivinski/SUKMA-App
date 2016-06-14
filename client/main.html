@@ -4,7 +4,8 @@
 
 <body>
     {{> navbar }}
-    <div id="container" class="container">
+    <div id="container" class="container" data-context="highlight">
+        <div id="container-highlight" class="row" data-next="null" data-prev="null"></div>
     </div>
 </body>
 
@@ -46,6 +47,7 @@
 </template>
 
 <template name="highlight">
+    <div class="panel-highlight col-xs-12 col-md-3">
     <div class="panel panel-primary">
         <div class="panel-heading">
             {{ title }}
@@ -53,5 +55,6 @@
         <div class="panel-body">
             {{{ data }}}
         </div>
+    </div>
     </div>
 </template>
