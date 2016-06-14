@@ -1,11 +1,49 @@
 <head>
-  <title>simple</title>
+  <title>SUKMA</title>
 </head>
 
 <body>
+    {{> navbar }}
     <div id="container" class="container">
     </div>
 </body>
+
+<template name="navbar">
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mobileNav">
+                    <i class="fa fa-bars fa-fw"></i>
+                </button>
+                <a class="navbar-brand" href="#">
+                    <img class="navbar-logo" src="images/logo.png" style="float:left;"/>
+                </a>
+            </div>
+            <div class="collapse navbar-collapse" id="mobileNav">
+                <ul class="nav navbar-nav">
+                    <li><a href="#" id="nav1">
+                            Home
+                    </a></li>
+                    <li><a href="#" id="nav2">
+                            Schedule
+                    </a></li>
+                    <li><a href="#" id="nav3">
+                            Contingents
+                    </a></li>
+                    <li><a href="#" id="nav4">
+                            Volunteer
+                    </a></li>
+                    <li><a href="#" id="nav5">
+                            Gallery
+                    </a></li>
+                    <li><a href="#" id="nav6">
+                            Visiting
+                    </a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</template>
 
 <template name="highlight">
     <div class="panel panel-primary">
