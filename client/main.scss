@@ -149,6 +149,12 @@ footer
     &-twitter { background-color: #55ACEE; }
     &-instagram { background-color: #99644E; }
     &-youtube { background-color: #E62117; }
+    &-loading {
+        position: fixed;
+        bottom: 10px;
+        right: 10px;
+        border-radius: 30px;
+    }
 }
 
 .navbar

@@ -12,6 +12,7 @@
         <div id="container-gallery" class="container-context row sukma-gallery" data-next="null" data-prev="null"></div>
         <div id="container-visiting" class="container-context row"></div>
     </div>
+    {{> loading }}
 </body>
 
 <template name="navbar">
@@ -49,6 +50,13 @@
             </div>
         </div>
     </nav>
+</template>
+
+<template name="loading">
+    <button id="btn-loading" class="btn btn-info btn-loading hidden">
+        <span class="fa fa-spinner fa-spin"></span>
+        Loading
+    </button>
 </template>
 
 <template name="highlight">

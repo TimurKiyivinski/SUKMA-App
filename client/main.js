@@ -48,10 +48,10 @@ Meteor.startup(() => {
             // TODO Create loading icon
             if (enable) {
                 update.unlocked = false
-                console.log("Loading...")
+                $('#btn-loading').removeClass('hidden')
             } else {
                 update.unlocked = true
-                console.log("Loading completed")
+                $('#btn-loading').addClass('hidden')
             }
         },
         // Refreshes highlights
