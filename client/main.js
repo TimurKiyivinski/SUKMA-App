@@ -30,6 +30,18 @@ Meteor.startup(() => {
     const navGallery = $('#nav5')
     const navVisiting = $('#nav6')
 
+    Template.highlight_photo.onCreated(() => {
+        $(this).click(() => {
+        })
+    })
+
+    Template.highlight_photo.events({
+        'click .panel': (e, t) => {
+            const dom = $(e.target)
+            dom.addClass('hidden')
+        }
+    })
+
     // Hide all contextual containers
     const hideContainers = () => $('.container-context').addClass('hidden')
 

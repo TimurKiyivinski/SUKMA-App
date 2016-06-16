@@ -1,5 +1,6 @@
 $black: #000;
 $white: #FFF;
+$panel-img: #1c88bd;
 
 // Custom bootstrap variables
 $brand-primary: #2CA5E0;
@@ -122,25 +123,25 @@ footer
     background-size: cover;
     &-body {
         background-size: cover;
+        text-overflow: ellipsis;
         &-img {
-            $panel-img: #1c88bd;
             padding: 0px;
             padding-bottom: 10px;
             background-color: $panel-img;
             border-bottom: 10px solid darken($panel-img, 10%);
         }
+        &-compress {
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            height: 120px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            border-bottom: 10px solid darken($panel-img, 10%);
+        }
     }
     &-footer {
         color: $white;
-    }
-    &-ellipsis {
-        text-overflow: ellipsis;
-        overflow: hidden;
-        white-space: nowrap;
-    }
-    &-img {
-        @extend .col-xs-12;
-        visibility: hidden;
     }
 }
 
