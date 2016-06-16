@@ -122,6 +122,13 @@ footer
     background-size: cover;
     &-body {
         background-size: cover;
+        &-img {
+            $panel-img: #1c88bd;
+            padding: 0px;
+            padding-bottom: 10px;
+            background-color: $panel-img;
+            border-bottom: 10px solid darken($panel-img, 10%);
+        }
     }
     &-footer {
         color: $white;

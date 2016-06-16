@@ -65,7 +65,12 @@ Meteor.startup(() => {
 
                 // Render each instance of highlight
                 data.data.forEach((highlight) => {
-                    Blaze.renderWithData(Template.highlight, highlight, containerHighlight[0])
+                    if (highlight.photos.length > 0) {
+                        highlight.photo = highlight.photos[0].url
+                        Blaze.renderWithData(Template.highlight_photo, highlight, containerHighlight[0])
+                    } else {
+                        Blaze.renderWithData(Template.highlight, highlight, containerHighlight[0])
+                    }
                 })
 
                 // Remove loading icon
