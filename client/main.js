@@ -33,6 +33,9 @@ Meteor.startup(() => {
     // Hide all contextual containers
     const hideContainers = () => $('.container-context').addClass('hidden')
 
+    // Remove item instances
+    const clear = (arg) => $(`#container-${arg}`).html('')
+
     // Returns current application context
     const context = () => container.data('context')
 
@@ -86,28 +89,6 @@ Meteor.startup(() => {
                 // Remove loading icon
                 update.loading(false)
             })
-        }
-    }
-
-    // Remove item instances
-    const clear = {
-        'home': () => {
-            containerHome.html('')
-        },
-        'highlight': () => {
-            containerHighlight.html('')
-        },
-        'schedule': () => {
-            containerSchedule.html('')
-        },
-        'contingents': () => {
-            containerContingents.html('')
-        },
-        'gallery': () => {
-            containerGallery.html('')
-        },
-        'visiting': () => {
-            containerVisiting.html('')
         }
     }
 
