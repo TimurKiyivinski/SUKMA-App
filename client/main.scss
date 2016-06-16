@@ -1,0 +1,352 @@
+$black: #000;
+$white: #FFF;
+
+// Custom bootstrap variables
+$brand-primary: #2CA5E0;
+$brand-success: #9E1317;
+$brand-info: #CC0000;
+$brand-warning: #FCD116;
+$brand-danger: #FA6900;
+
+$border-radius-base: 0;
+$border-radius-small: 0;
+$border-radius-large: 0;
+
+$state-success-bg: #9e1512;
+$state-info-bg: #2ca4e0;
+$state-warning-bg: #fc5f16;
+$state-danger-bg: #f90014;
+
+$table-bg: $white;
+$table-border-color: darken($white, 10%);
+
+$screen-sm: 1110px;
+
+// Import bootstrap
+@import "{}/node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+// Sizes
+$img-thumb: 320px;
+$img-normal: 640px;
+$body-padding: 70px;
+$map-height: 60vh;
+$navbar-logo-height: 36px;
+$gallery-height: 70vh;
+$scroll-height: 400px;
+
+@-moz-document url-prefix() {
+  fieldset { display: table-cell; }
+}
+
+body
+{
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    padding-top: $body-padding;
+    overflow-x: hidden;
+}
+
+.wrapper {
+    min-height: 100%;
+    position: relative;
+}
+
+footer
+{
+    position: absolute;
+    height: 50px;
+    width: 100%;
+    bottom:0;
+    left: 0;
+}
+
+.map-canvas
+{
+    height: $map-height;
+}
+
+.navbar-logo
+{
+    height: $navbar-logo-height;
+    margin-top: -10px;
+}
+
+@media (max-width: $screen-sm) {
+    .navbar-offcanvas
+    {
+        //padding-top: $navbar-height + 20px;
+        background-color: $navbar-default-bg;
+        z-index: 10000;
+    }
+}
+
+// Panel overrides
+@mixin panel-gradient($heading-bg-color, $brand-color, $heading-color) {
+    & > .panel-heading {
+        background: linear-gradient(to right, $heading-bg-color, darken(adjust_hue(lighten(desaturate($heading-bg-color, 32), 20), 300), 10%));
+        border-bottom: 10px solid darken($brand-color, 10%);
+        white-space: normal;
+        color: $heading-color;
+        text-transform: uppercase;
+    }
+    & > .panel-footer {
+        background: linear-gradient(to right, lighten($brand-color, 10%), adjust_hue(lighten(desaturate($brand-color, 32), 20), 300));
+        border-top: 10px solid $brand-color;
+    }
+}
+
+.panel-default {
+  @include panel-gradient($panel-default-heading-bg, $gray, $black);
+}
+.panel-primary {
+  @include panel-gradient($panel-primary-heading-bg, $brand-primary, $white);
+}
+.panel-success {
+  @include panel-gradient($panel-success-heading-bg, $brand-success, $white);
+}
+.panel-info {
+  @include panel-gradient($panel-info-heading-bg, $brand-info, $white);
+}
+.panel-warning {
+  @include panel-gradient($panel-warning-heading-bg, $brand-warning, $white);
+}
+.panel-danger {
+  @include panel-gradient($panel-danger-heading-bg, $brand-danger, $white);
+}
+
+.panel
+{
+    color: $black;
+    border: 0;
+    box-shadow: 2px 2px 2px #A1A1A1;
+    background-size: cover;
+    &-body {
+        background-size: cover;
+    }
+    &-footer {
+        color: $white;
+    }
+    &-ellipsis {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+    &-img {
+        @extend .col-xs-12;
+        visibility: hidden;
+    }
+}
+
+.btn
+{
+    border: none;
+    text-transform: uppercase;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    letter-spacing: 2px;
+    &-facebook { background-color: #3B5998; }
+    &-twitter { background-color: #55ACEE; }
+    &-instagram { background-color: #99644E; }
+    &-youtube { background-color: #E62117; }
+}
+
+.navbar
+{
+    a
+    {
+        letter-spacing: 2px;
+        text-transform: uppercase;
+    }
+}
+a:hover { text-decoration: none; }
+
+// custom navbar coloring
+#nav1:hover, #nav2:hover,
+#nav3:hover, #nav4:hover,
+#nav5:hover, #nav6:hover,
+#nav7:hover, #nav8:hover
+{
+  background-color: #FBFBFB;
+  transition: background-color 0s ease;
+}
+
+/*
+  Individual List Colored Underline
+--------------------*/
+#nav1:hover{
+  box-shadow: inset 0 -10px 0 hotpink;
+}
+#nav2:hover{
+  box-shadow: inset 0 -10px 0 #FBB70F;
+}
+#nav3:hover{
+  box-shadow: inset 0 -10px 0 #73C53E;
+}
+#nav4:hover{
+  box-shadow: inset 0 -10px 0 #4385F6;
+}
+#nav5:hover{
+  box-shadow: inset 0 -10px 0 #61009C;
+}
+#nav6:hover{
+  box-shadow: inset 0 -10px 0 #FBB70F;
+}
+#nav7:hover{
+  box-shadow: inset 0 -10px 0 #73C53E;
+}
+#nav8:hover{
+  box-shadow: inset 0 -10px 0 #4385F6;
+}
+
+// Scrollable Dropdowns
+.dropdown-scroll
+{
+    max-height: $scroll-height;
+    overflow-y: auto;
+}
+
+// Schedule cells
+$cell-pendaftaran: #e0d12c;
+$cell-pertandingan: #2ce0c2;
+$cell-mesyuarat-pengurus: #e0772c;
+$cell-perasmian-penutup: #fcd216;
+$cell-majlis-pnp-rasmi: #ff0000;
+
+// Action plan cells
+$cell-msn-malaysia: #d9d9d9;
+$cell-setiausaha-kps: #3399ff;
+$cell-proses-pelaksanaan: #ffcc00;
+$cell-untuk-dilaksanakan: #009933;
+$cell-sudah-dilaksanakan: #ff0000;
+
+.data {
+    &-pendaftaran { background-color: $cell-pendaftaran; }
+    &-pertandingan { background-color: $cell-pertandingan; }
+    &-mesyuarat-pengurus { background-color: $cell-mesyuarat-pengurus; }
+    &-perasmian-penutup { background-color: $cell-perasmian-penutup; }
+    &-majlis-pnp-rasmi { background-color: $cell-majlis-pnp-rasmi; }
+    &-pendaftaran-mesyuarat {
+        background-image: linear-gradient(to left, $cell-pendaftaran, $cell-mesyuarat-pengurus);
+        background-image: -o-linear-gradient(to left, $cell-pendaftaran 0%, $cell-mesyuarat-pengurus 100%);
+        background-image: -moz-linear-gradient(to left, $cell-pendaftaran 0%, $cell-mesyuarat-pengurus 100%);
+        background-image: -webkit-linear-gradient(to left, $cell-pendaftaran 0%, $cell-mesyuarat-pengurus 100%);
+        background-image: -ms-linear-gradient(to left, $cell-pendaftaran 0%, $cell-mesyuarat-pengurus 100%);
+        background-image: linear-gradient(to right, $cell-pendaftaran 0%, $cell-mesyuarat-pengurus 100%);
+    }
+    &-msn-malaysia { background-color: $cell-msn-malaysia; }
+    &-setiausaha-kps { background-color: $cell-setiausaha-kps; }
+    &-proses-pelaksanaan { background-color: $cell-proses-pelaksanaan; }
+    &-untuk-dilaksanakan { background-color: $cell-untuk-dilaksanakan; }
+    &-sudah-dilaksanakan { background-color: $cell-sudah-dilaksanakan; }
+}
+.label-data {
+    &-pendaftaran { background-color: $cell-pendaftaran; }
+    &-pertandingan { background-color: $cell-pertandingan; }
+    &-mesyuarat-pengurus { background-color: $cell-mesyuarat-pengurus; }
+    &-perasmian-penutup { background-color: $cell-perasmian-penutup; }
+    &-majlis-pnp-rasmi { background-color: $cell-majlis-pnp-rasmi; }
+    &-msn-malaysia { background-color: $cell-msn-malaysia; }
+    &-setiausaha-kps { background-color: $cell-setiausaha-kps; }
+    &-proses-pelaksanaan { background-color: $cell-proses-pelaksanaan; }
+    &-untuk-dilaksanakan { background-color: $cell-untuk-dilaksanakan; }
+    &-sudah-dilaksanakan { background-color: $cell-sudah-dilaksanakan; }
+}
+
+.list-group-item {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+// News breadcrumb wrapping
+.breadcrumb {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin: 0;
+}
+
+.breadcrumb li {
+  display: inline;
+}
+
+$column-count: 1;
+$column-count-sm: 2;
+$column-count-md: 3;
+$column-count-lg: 4;
+$column-gap: 0px;
+
+.sukma-gallery {
+  /* Prevent vertical gaps */
+  line-height: 0;
+
+  -webkit-column-count: $column-count;
+  -webkit-column-gap: $column-gap;
+  -moz-column-count: $column-count;
+  -moz-column-gap: $column-gap;
+  column-count: $column-count;
+  column-gap: $column-gap;
+}
+
+.sukma-gallery img {
+  /* Just in case there are inline attributes */
+  width: 100% !important;
+  height: auto !important;
+}
+
+@media (min-width: $screen-xs-min) {
+    .sukma-gallery {
+        /* Prevent vertical gaps */
+        line-height: 0;
+
+        -webkit-column-count: $column-count-sm;
+        -webkit-column-gap: $column-gap;
+        -moz-column-count: $column-count-sm;
+        -moz-column-gap: $column-gap;
+        column-count: $column-count-sm;
+        column-gap: $column-gap;
+    }
+}
+
+@media (min-width: $screen-sm-min) {
+    .sukma-gallery {
+        /* Prevent vertical gaps */
+        line-height: 0;
+
+        -webkit-column-count: $column-count-sm;
+        -webkit-column-gap: $column-gap;
+        -moz-column-count: $column-count-sm;
+        -moz-column-gap: $column-gap;
+        column-count: $column-count-sm;
+        column-gap: $column-gap;
+    }
+}
+
+@media (min-width: $screen-md-min) {
+    .sukma-gallery {
+        /* Prevent vertical gaps */
+        line-height: 0;
+
+        -webkit-column-count: $column-count-md;
+        -webkit-column-gap: $column-gap;
+        -moz-column-count: $column-count-md;
+        -moz-column-gap: $column-gap;
+        column-count: $column-count-md;
+        column-gap: $column-gap;
+    }
+}
+
+@media (min-width: $screen-lg-min) {
+    .sukma-gallery {
+        /* Prevent vertical gaps */
+        line-height: 0;
+
+        -webkit-column-count: $column-count-lg;
+        -webkit-column-gap: $column-gap;
+        -moz-column-count: $column-count-lg;
+        -moz-column-gap: $column-gap;
+        column-count: $column-count-lg;
+        column-gap: $column-gap;
+    }
+}
