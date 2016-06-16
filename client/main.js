@@ -14,11 +14,27 @@ if (Meteor.isCordova) {
 
 Meteor.startup(() => {
     // Containers
-    const container = $('#container')[0]
+    const container = $('#container')
+    const containerHome = $('#container-home')
     const containerHighlight = $('#container-highlight')
+    const containerSchedule = $('#container-schedule')
+    const containerContingents = $('#container-contingents')
+    const containerGallery = $('#container-gallery')
+    const containerVisiting = $('#container-visiting')
+
+    // Navigation links
+    const navHome = $('#nav1')
+    const navHighlight = $('#nav2')
+    const navSchedule = $('#nav3')
+    const navContigents = $('#nav4')
+    const navGallery = $('#nav5')
+    const navVisiting = $('#nav6')
+
+    // Hide all contextual containers
+    const hideContainers = () => $('.container-context').addClass('hidden')
 
     // Returns current application context
-    const context = () => $('#container').data('context')
+    const context = () => container.data('context')
 
     // Update application states
     const update = {
@@ -52,15 +68,94 @@ Meteor.startup(() => {
                 // Remove loading icon
                 update.loading(false)
             })
+        },
+        // Refreshes gallery
+        'gallery': (url) => {
+            $.get(url, (response) => {
+                const data = response.data
+
+                // Set pagination urls
+                containerGallery.data('next', data.next_page_url)
+                containerGalley.data('prev', data.prev_page_url)
+
+                // Render each instance of highlight
+                data.data.forEach((image) => {
+                    Blaze.renderWithData(Template.gallery, image, containerGallery[0])
+                })
+
+                // Remove loading icon
+                update.loading(false)
+            })
         }
     }
 
     // Remove item instances
     const clear = {
+        'home': () => {
+            containerHome.html('')
+        },
         'highlight': () => {
-            $('.panel-highlight').remove()
+            containerHighlight.html('')
+        },
+        'schedule': () => {
+            containerSchedule.html('')
+        },
+        'contingents': () => {
+            containerContingents.html('')
+        },
+        'gallery': () => {
+            containerGallery.html('')
+        },
+        'visiting': () => {
+            containerVisiting.html('')
         }
     }
+
+    // Sets current application context
+    const contextSet = {
+        'home': () => {
+            container.data('context', 'home')
+            hideContainers()
+            containerHome.removeClass('hidden')
+        },
+        'highlight': () => {
+            container.data('context', 'highlight')
+            hideContainers()
+            containerHighlight.removeClass('hidden')
+
+            update.highlight(`${api}/highlight`)
+        },
+        'schedule': () => {
+            container.data('context', 'schedule')
+            hideContainers()
+            containerSchedule.removeClass('hidden')
+        },
+        'contingents': () => {
+            container.data('context', 'contingents')
+            hideContainers()
+            containerContingents.removeClass('hidden')
+        },
+        'gallery': () => {
+            container.data('context', 'gallery')
+            hideContainers()
+            containerGallery.removeClass('hidden')
+
+            update.gallery(`${api}/gallery`)
+        },
+        'visiting': () => {
+            container.data('context', 'visiting')
+            hideContainers()
+            containerVisiting.removeClass('hidden')
+        }
+    }
+
+    // Set navigation button actions
+    navHome.click(() => contextSet.home())
+    navHighlight.click(() => contextSet.highlight())
+    navSchedule.click(() => contextSet.schedule())
+    navContigents.click(() => contextSet.contingents())
+    navGallery.click(() => contextSet.gallery())
+    navVisiting.click(() => contextSet.visiting())
 
     $(window).scroll(() => {
         // Top
@@ -97,6 +192,5 @@ Meteor.startup(() => {
         }
     })
 
-    update.highlight(`${api}/highlight`)
-
+    contextSet.highlight()
 })

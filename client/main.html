@@ -4,8 +4,13 @@
 
 <body>
     {{> navbar }}
-    <div id="container" class="container" data-context="highlight">
-        <div id="container-highlight" class="row" data-next="null" data-prev="null"></div>
+    <div id="container" class="container" data-context="home">
+        <div id="container-home" class="container-context row"></div>
+        <div id="container-highlight" class="container-context row" data-next="null" data-prev="null"></div>
+        <div id="container-schedule" class="container-context row"></div>
+        <div id="container-contingents" class="container-context row"></div>
+        <div id="container-gallery" class="container-context row" data-next="null" data-prev="null"></div>
+        <div id="container-visiting" class="container-context row"></div>
     </div>
 </body>
 
@@ -26,13 +31,13 @@
                             Home
                     </a></li>
                     <li><a href="#" id="nav2">
-                            Schedule
+                            News
                     </a></li>
                     <li><a href="#" id="nav3">
-                            Contingents
+                            Schedule
                     </a></li>
                     <li><a href="#" id="nav4">
-                            Volunteer
+                            Contingents
                     </a></li>
                     <li><a href="#" id="nav5">
                             Gallery
@@ -47,6 +52,19 @@
 </template>
 
 <template name="highlight">
+    <div class="panel-highlight col-xs-12 col-md-3">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            {{ title }}
+        </div>
+        <div class="panel-body">
+            {{{ data }}}
+        </div>
+    </div>
+    </div>
+</template>
+
+<template name="gallery">
     <div class="panel-highlight col-xs-12 col-md-3">
     <div class="panel panel-primary">
         <div class="panel-heading">
