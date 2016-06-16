@@ -79,7 +79,7 @@ Meteor.startup(() => {
 
                 // Set pagination urls
                 containerGallery.data('next', data.next_page_url)
-                containerGalley.data('prev', data.prev_page_url)
+                containerGallery.data('prev', data.prev_page_url)
 
                 // Render each instance of highlight
                 data.data.forEach((image) => {
@@ -121,7 +121,7 @@ Meteor.startup(() => {
             hideContainers()
             containerGallery.removeClass('hidden')
 
-            update.gallery(`${api}/gallery`)
+            update.gallery(`${api}/photo`)
         },
         'visiting': () => {
             container.data('context', 'visiting')
@@ -139,22 +139,6 @@ Meteor.startup(() => {
     navVisiting.click(() => contextSet.visiting())
 
     $(window).scroll(() => {
-        // Top
-        if ($(window).scrollTop() == 0) {
-            if (context() == "highlight") {
-                // If there is previous news
-                if (containerHighlight.data('prev') != null && update.unlocked) {
-                    // Display loading icon
-                    update.loading(true)
-
-                    // Clear highlights
-                    clear.highlight()
-
-                    // Update news with next url
-                    update.highlight(`${containerHighlight.data('prev')}`)
-                }
-            }
-        }
         // Bottom
         if ($(window).scrollTop() + $(window).height() == $(document).height()) {
             if (context() == "highlight") {
@@ -162,14 +146,17 @@ Meteor.startup(() => {
                 if (containerHighlight.data('next') != null && update.unlocked) {
                     // Display loading icon
                     update.loading(true)
-
-                    // Clear highlights
-                    clear.highlight()
-
                     // Update news with next url
                     update.highlight(`${containerHighlight.data('next')}`)
                 }
-            }
+            } else if (context() == "gallery")
+                // If there is more photos
+                if (containerGallery.data('next') != null && update.unlocked) {
+                    // Display loading icon
+                    update.loading(true)
+                    // Update news with next url
+                    update.gallery(`${containerGallery.data('next')}`)
+                }
         }
     })
 
