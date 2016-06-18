@@ -37,8 +37,16 @@ Meteor.startup(() => {
 
     Template.highlight_photo.events({
         'click .panel': (e, t) => {
-            const dom = $(e.target)
-            dom.addClass('hidden')
+            const panel = $(e.target).parents('.panel-body')
+            if (panel.hasClass('panel-body-compress')) {
+                if (! panel.hasClass('panel-body-img')) {
+                    panel.removeClass('panel-body-compress')
+                }
+            } else {
+                if (! panel.hasClass('panel-body-img')) {
+                    panel.addClass('panel-body-compress')
+                }
+            }
         }
     })
 
