@@ -44,7 +44,7 @@
                             Gallery
                     </a></li>
                     <li><a href="#" id="nav6">
-                            Visiting
+                            Visitig
                     </a></li>
                 </ul>
             </div>
@@ -89,5 +89,7 @@
 </template>
 
 <template name="gallery">
-    <img src="{{ url }}" alt="">
+    {{#HammerTouchArea gestureMap=galleryGestures}}
+    <img src="{{ url }}" alt="Test">
+    {{/HammerTouchArea}}
 </template>

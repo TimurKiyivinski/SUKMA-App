@@ -21,3 +21,4 @@ insecure                # Allow all DB writes from clients (for prototyping)
 natestrauser:font-awesome
 seba:minifiers-autoprefixer
 fourseven:scss
+chriswessels:hammer

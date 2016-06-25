@@ -8,10 +8,6 @@ import './main.html'
 
 const api = 'https://sukmasarawak2016.my/v1'
 
-if (Meteor.isCordova) {
-} else {
-}
-
 Meteor.startup(() => {
     // Containers
     const container = $('#container')
@@ -29,6 +25,22 @@ Meteor.startup(() => {
     const navContigents = $('#nav4')
     const navGallery = $('#nav5')
     const navVisiting = $('#nav6')
+
+    Template.gallery.helpers({
+        destroy: () => {
+            this.dom.remove()
+        },
+        galleryGestures: {
+            'tap img': (e, t) => {
+                const img = $(e.target)
+                img.remove()
+            },
+            'pinchin img': (e, t) => {
+                const img = $(e.target)
+                img.remove()
+            },
+        }
+    })
 
     Template.highlight_photo.onCreated(() => {
         $(this).click(() => {
