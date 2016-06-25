@@ -1,5 +1,7 @@
 <head>
   <title>SUKMA</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
@@ -44,7 +46,7 @@
                             Gallery
                     </a></li>
                     <li><a href="#" id="nav6">
-                            Visitig
+                            Visiting
                     </a></li>
                 </ul>
             </div>
@@ -89,7 +91,7 @@
 </template>
 
 <template name="gallery">
-    {{#HammerTouchArea gestureMap=galleryGestures}}
+    {{#HammerTouchArea configureCallback=configureHammer gestureMap=galleryGestures}}
     <img src="{{ url }}" alt="Test">
     {{/HammerTouchArea}}
 </template>

@@ -30,15 +30,21 @@ Meteor.startup(() => {
         destroy: () => {
             this.dom.remove()
         },
+        configureHammer: () => {
+            console.log('Configuring')
+            return (hammer, t) => {
+                hammer.get('pinch').set({
+                    'enable': true
+                })
+                return hammer
+            }
+        },
         galleryGestures: {
-            'tap img': (e, t) => {
-                const img = $(e.target)
-                img.remove()
-            },
             'pinchin img': (e, t) => {
+                console.log('Triggered')
                 const img = $(e.target)
                 img.remove()
-            },
+            }
         }
     })
 
