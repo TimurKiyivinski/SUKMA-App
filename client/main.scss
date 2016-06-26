@@ -2,6 +2,10 @@ $black: #000;
 $white: #FFF;
 $panel-img: #1c88bd;
 
+$gold: #DAA520;
+$silver: #C0C0C0;
+$bronze: #CD7F32;
+
 // Custom bootstrap variables
 $brand-primary: #2CA5E0;
 $brand-success: #9E1317;
@@ -384,4 +388,13 @@ $column-gap: 0px;
         min-width: 100px;
         width: 100px;
     }
+}
+
+.bronze { color: $bronze; }
+.silver { color: $silver; }
+.gold   { color: $gold;   }
+
+.contingents-flag {
+    width: 25px;
+    height: 25px;
 }
