@@ -356,3 +356,21 @@ $column-gap: 0px;
         column-gap: $column-gap;
     }
 }
+
+.xs-consistent-grid {
+    padding: 1px;
+
+    .thumbnail {
+        margin: 1px;
+
+        img {
+            min-height: 80px;
+            height: 80px;
+        }
+
+        .caption {
+            text-align: center;
+            padding: 2px;
+        }
+    }
+}

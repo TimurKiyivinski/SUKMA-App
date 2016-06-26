@@ -17,6 +17,10 @@ Meteor.startup(() => {
     const containerContingents = $('#container-contingents')
     const containerGallery = $('#container-gallery')
     const containerVisiting = $('#container-visiting')
+    const containerVideos = $('#container-videos')
+    const containerMedalTally = $('#container-medaltally')
+    const containerSocialMedia = $('#container-socialmedia')
+    const containerSettings = $('#container-settings')
 
     // Navigation links
     const navHome = $('#nav1')
@@ -25,6 +29,10 @@ Meteor.startup(() => {
     const navContigents = $('#nav4')
     const navGallery = $('#nav5')
     const navVisiting = $('#nav6')
+    const navVideos = $('#nav7')
+    const navMedalTally = $('#nav8')
+    const navSocialMedia = $('#nav9')
+    const navSettings = $('#nav10')
 
     const highlight_click = (e, t) => {
         const target = $(e.target)
@@ -200,6 +208,26 @@ Meteor.startup(() => {
             container.data('context', 'visiting')
             hideContainers()
             containerVisiting.removeClass('hidden')
+        },
+        'videos': () => {
+            container.data('context', 'videos')
+            hideContainers()
+            containerVideos.removeClass('hidden')
+        },
+        'medaltally': () => {
+            container.data('context', 'medaltally')
+            hideContainers()
+            containerMedalTally.removeClass('hidden')
+        },
+        'socialmedia': () => {
+            container.data('context', 'socialmedia')
+            hideContainers()
+            containerSocialMedia.removeClass('hidden')
+        },
+        'settings': () => {
+            container.data('context', 'settings')
+            hideContainers()
+            containerSettings.removeClass('hidden')
         }
     }
 
@@ -210,6 +238,10 @@ Meteor.startup(() => {
     navContigents.click(() => contextSet.contingents())
     navGallery.click(() => contextSet.gallery())
     navVisiting.click(() => contextSet.visiting())
+    navVideos.click(() => contextSet.videos())
+    navMedalTally.click(() => contextSet.medaltally())
+    navSocialMedia.click(() => contextSet.socialmedia())
+    navSettings.click(() => contextSet.settings())
 
     $(window).scroll(() => {
         // Bottom

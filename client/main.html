@@ -8,13 +8,21 @@
     {{> navbar }}
     <div id="container" class="container" data-context="home">
         <div id="container-home" class="container-context row">
-            <iframe class="embed-responsive-item" src="http://gms.sukmasarawak2016.my/RS2016"></iframe>
+            {{> home}}
         </div>
         <div id="container-highlight" class="container-context row" data-next="null" data-prev="null"></div>
         <div id="container-schedule" class="container-context row"></div>
-        <div id="container-contingents" class="container-context row"></div>
+        <div id="container-contingents" class="container-context row">
+            {{> contingents}}
+        </div>
         <div id="container-gallery" class="container-context row sukma-gallery" data-next="null" data-prev="null"></div>
         <div id="container-visiting" class="container-context row"></div>
+        <div id="container-videos" class="container-context row"></div>
+        <div id="container-medaltally" class="container-context row"></div>
+        <div id="container-socialmedia" class="container-context row">
+            {{> socialmedia}}
+        </div>
+        <div id="container-settings" class="container-context row"></div>
     </div>
     {{> loading }}
 </body>
@@ -33,22 +41,34 @@
             <div class="collapse navbar-collapse" id="mobileNav">
                 <ul class="nav navbar-nav">
                     <li><a href="#" id="nav1">
-                            Home
+                            <span class="fa fa-home"></span> Home
                     </a></li>
                     <li><a href="#" id="nav2">
-                            News
+                            <span class="fa fa-newspaper-o"></span> News
                     </a></li>
                     <li><a href="#" id="nav3">
-                            Schedule
+                            <span class="fa fa-calendar"></span> Schedule
                     </a></li>
                     <li><a href="#" id="nav4">
-                            Contingents
+                            <span class="fa fa-flag"></span> Contingents
                     </a></li>
                     <li><a href="#" id="nav5">
-                            Gallery
+                            <span class="fa fa-camera-retro"></span> Gallery
                     </a></li>
                     <li><a href="#" id="nav6">
-                            Visiting
+                            <span class="fa fa-map-marker"></span> Visiting
+                    </a></li>
+                    <li><a href="#" id="nav7">
+                            <span class="fa fa-video-camera"></span> Videos
+                    </a></li>
+                    <li><a href="#" id="nav8">
+                            <span class="fa fa-trophy"></span> Medal Tally
+                    </a></li>
+                    <li><a href="#" id="nav9">
+                            <span class="fa fa-users"></span> Social Media
+                    </a></li>
+                    <li><a href="#" id="nav10">
+                            <span class="fa fa-gear"></span> Settings
                     </a></li>
                 </ul>
             </div>
@@ -175,4 +195,98 @@
             </div>
         </div>
     </div>
+</template>
+
+<template name="home">
+    <h1>Test header</h1>
+</template>
+
+<template name="contingents">
+    <div class="row">
+        <!-- Each row has 3 thumbnails, e.g: -->
+        <!-- ROW 1 -->
+        <div class="col-xs-4 xs-consistent-grid">
+            <a class="thumbnail">
+                <img src="/states/Johor.png" class="img-responsive">
+                <span class="caption">
+                    <h5>Johor</h5>
+                </span>
+            </a>
+        </div>
+        <div class="col-xs-4 xs-consistent-grid">
+            <a class="thumbnail">
+                <img src="/states/Kedah.png" class="img-responsive">
+                <span class="caption">
+                    <h5>Kedah</h5>
+                </span>
+            </a>
+        </div>
+        <div class="col-xs-4 xs-consistent-grid">
+            <a class="thumbnail">
+                <img src="/states/Kelantan.png" class="img-responsive">
+                <span class="caption">
+                    <h5>Kelantan</h5>
+                </span>
+            </a>
+        </div>
+        <!-- END ROW 1 -->
+        <!-- ROW 2 -->
+        <div class="col-xs-4 xs-consistent-grid">
+            <a class="thumbnail">
+                <img src="/states/Melaka.png" class="img-responsive">
+                <span class="caption">
+                    <h5>Melaka</h5>
+                </span>
+            </a>
+        </div>
+        <div class="col-xs-4 xs-consistent-grid">
+            <a class="thumbnail">
+                <img src="/states/Negeri-Sembilan.png" class="img-responsive">
+                <span class="caption">
+                    <h5>Negeri Sembilan</h5>
+                </span>
+            </a>
+        </div>
+        <div class="col-xs-4 xs-consistent-grid">
+            <a class="thumbnail">
+                <img src="/states/Pahang.png" class="img-responsive">
+                <span class="caption">
+                    <h5>Pahang</h5>
+                </span>
+            </a>
+        </div>
+        <!-- END ROW 2 -->
+    </div>
+</template>
+
+<template name="socialmedia">
+    <a class="btn btn-primary btn-block btn-facebook" href="https://www.facebook.com/SUKMA2016" role="button">
+        <span class="fa fa-facebook-square fa-3x pull-left"></span>
+        <span>
+            Facebook<br>
+            @SUKMA2016
+        </span>
+    </a>
+    <a class="btn btn-primary btn-block btn-twitter" href="https://twitter.com/sukma_2016_swk" role="button">
+        <span class="fa fa-twitter-square fa-3x pull-left"></span>
+        <span>
+            Twitter<br>
+            @sukma_2016_swk
+        </span>
+    </a>
+    <a class="btn btn-primary btn-block btn-instagram" href="https://www.instagram.com/sukmasarawak2016/" role="button">
+        <span class="fa fa-instagram fa-3x pull-left"></span>
+        <span>
+            Instagram<br>
+            @sukmasarawak2016
+        </span>
+    </a>
+    <a class="btn btn-primary btn-block btn-youtube" href="https://www.youtube.com/channel/UCtUjedBFRQudHOTJJwmE68Q" role="button">
+        <span class="fa fa-youtube-square fa-3x pull-left"></span>
+        <span>
+            Youtube<br>
+            @SUKMASarawak2016
+        </span>
+    </a>
+
 </template>
