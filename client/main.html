@@ -101,6 +101,10 @@
 </template>
 
 <template name="gallery">
+    <img src="{{ url }}" alt="Test">
+</template>
+
+<template name="gallery-beta">
     {{#HammerTouchArea configureCallback=configureHammer gestureMap=galleryGestures}}
     <img src="{{ url }}" alt="Test">
     {{/HammerTouchArea}}

@@ -67,6 +67,17 @@ Meteor.startup(() => {
         }
     })
 
+    Template.gallery.events({
+        'click img': (e, t) => {
+            if (Meteor.isCordova) {
+                cordova.plugins.fileOpener2.open(
+                    $(e.target).attr('src'),
+                    'image/jpg'
+                )
+            }
+        }
+    })
+
     Template.highlight_photo.events({
         'click .panel': highlight_click
     })
