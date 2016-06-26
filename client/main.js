@@ -243,5 +243,5 @@ Meteor.startup(() => {
         }
     })
 
-    contextSet.results()
+    contextSet.schedule()
 })
