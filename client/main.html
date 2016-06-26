@@ -7,7 +7,9 @@
 <body>
     {{> navbar }}
     <div id="container" class="container" data-context="home">
-        <div id="container-home" class="container-context row"></div>
+        <div id="container-home" class="container-context row">
+            <iframe class="embed-responsive-item" src="http://gms.sukmasarawak2016.my/RS2016"></iframe>
+        </div>
         <div id="container-highlight" class="container-context row" data-next="null" data-prev="null"></div>
         <div id="container-schedule" class="container-context row"></div>
         <div id="container-contingents" class="container-context row"></div>
@@ -65,11 +67,13 @@
     <div class="panel-highlight col-xs-12 col-md-3">
     <div class="panel panel-primary">
         <div class="panel-heading">
-            {{ title }}
+            <b>{{ title }}</b>
+            <small><em>{{ created_at }}</em></small>
         </div>
         <div class="panel-body panel-body-container">
             <div class="panel-body-compress collapse in">
                 <i>{{{ min }}}...</i>
+                <span class="text-danger"><small><em>Read more</em></small></span>
             </div>
             <div class="panel-body-full collapse">
                 {{{ data }}}
@@ -83,7 +87,8 @@
     <div class="panel-highlight col-xs-12 col-md-3">
     <div class="panel panel-primary">
         <div class="panel-heading">
-            {{ title }}
+            <b>{{ title }}</b>
+            <small><em>{{ created_at }}</em></small>
         </div>
         <div class="panel-body panel-body-img">
             <img src="{{ photo }}" class="col-xs-12">
@@ -91,6 +96,7 @@
         <div class="panel-body panel-body-container">
             <div class="panel-body-compress collapse in">
                 <i>{{{ min }}}...</i>
+                <span class="text-danger"><small><em>Read more</em></small></span>
             </div>
             <div class="panel-body-full collapse">
                 {{{ data }}}
