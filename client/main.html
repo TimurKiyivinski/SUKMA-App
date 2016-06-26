@@ -8,7 +8,7 @@
     {{> navbar }}
     <div id="container" class="container" data-context="home">
         <div id="container-home" class="container-context row">
-            <iframe class="embed-responsive-item" src="http://gms.sukmasarawak2016.my/RS2016"></iframe>
+            {{> home }}
         </div>
         <div id="container-highlight" class="container-context row" data-next="null" data-prev="null"></div>
         <div id="container-schedule" class="container-context row"></div>
@@ -61,6 +61,10 @@
         <span class="fa fa-spinner fa-spin"></span>
         Loading
     </button>
+</template>
+
+<template name="home">
+    <iframe class="embed-responsive-item" src="http://gms.sukmasarawak2016.my/RS2016"></iframe>
 </template>
 
 <template name="highlight">
