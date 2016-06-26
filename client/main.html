@@ -83,8 +83,13 @@
         <div class="panel-body panel-body-img">
             <img src="{{ photo }}" class="col-xs-12">
         </div>
-        <div class="panel-body panel-body-compress">
-            {{{ data }}}
+        <div class="panel-body panel-body-container">
+            <div class="panel-body-compress collapse in">
+                <i>{{{ min }}}...</i>
+            </div>
+            <div class="panel-body-full collapse">
+                {{{ data }}}
+            </div>
         </div>
     </div>
     </div>

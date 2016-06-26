@@ -55,15 +55,20 @@ Meteor.startup(() => {
 
     Template.highlight_photo.events({
         'click .panel': (e, t) => {
-            const panel = $(e.target).parents('.panel-body')
-            if (panel.hasClass('panel-body-compress')) {
-                if (! panel.hasClass('panel-body-img')) {
-                    panel.removeClass('panel-body-compress')
-                }
+            const body = $(e.target).parents('.panel-body-container')
+            const compress = body.find('.panel-body-compress')
+            const full = body.find('.panel-body-full')
+
+            console.log(body)
+            console.log(compress)
+            console.log(full)
+
+            if (compress.hasClass('in')) {
+                compress.removeClass('in')
+                full.addClass('in')
             } else {
-                if (! panel.hasClass('panel-body-img')) {
-                    panel.addClass('panel-body-compress')
-                }
+                full.removeClass('in')
+                compress.addClass('in')
             }
         }
     })
@@ -103,6 +108,7 @@ Meteor.startup(() => {
 
                 // Render each instance of highlight
                 data.data.forEach((highlight) => {
+                    highlight.min = highlight.data.replace(/(<([^>]+)>)/ig,"").substring(0, 64)
                     if (highlight.photos.length > 0) {
                         highlight.photo = highlight.photos[0].url
                         Blaze.renderWithData(Template.highlight_photo, highlight, containerHighlight[0])

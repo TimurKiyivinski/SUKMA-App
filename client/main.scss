@@ -130,15 +130,6 @@ footer
             background-color: $panel-img;
             border-bottom: 10px solid darken($panel-img, 10%);
         }
-        &-compress {
-            display: -webkit-box;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
-            height: 180px;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            border-bottom: 10px solid darken($panel-img, 10%);
-        }
     }
     &-footer {
         color: $white;
