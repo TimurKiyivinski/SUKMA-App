@@ -16,6 +16,7 @@ Meteor.startup(() => {
     const containerResults = $('#container-results')
     const containerSchedule = $('#container-schedule')
     const containerContingents = $('#container-contingents')
+    const containerVenues = $('#container-venues')
     const containerGallery = $('#container-gallery')
     const containerVisiting = $('#container-visiting')
 
@@ -25,6 +26,7 @@ Meteor.startup(() => {
     const navResults = $('#nav_results')
     const navSchedule = $('#nav_schedule')
     const navContigents = $('#nav_contingents')
+    const navVenues = $('#nav_venues')
     const navGallery = $('#nav_gallery')
     const navVisiting = $('#nav_visiting')
 
@@ -136,12 +138,25 @@ Meteor.startup(() => {
                 update.loading(false)
             })
         },
-        'results': () => {
-        },
         // Refreshes schedule
         'schedule': (url) => {
             $.get(url, (response) => {
                 Blaze.renderWithData(Template.schedule, response, containerSchedule[0])
+            })
+        },
+        // Refreshes gallery
+        'venues': (url) => {
+            $.get(url, (response) => {
+                const data = response.data
+
+                // Render each instance of highlight
+                data.forEach((venue) => {
+                    venue.photo = venue.photos[0].url
+                    Blaze.renderWithData(Template.venue, venue, containerVenues[0])
+                })
+
+                // Remove loading icon
+                update.loading(false)
             })
         },
         // Refreshes gallery
@@ -197,6 +212,14 @@ Meteor.startup(() => {
             hideContainers()
             containerContingents.removeClass('hidden')
         },
+        'venues': () => {
+            clear('venues')
+            container.data('context', 'venues')
+            hideContainers()
+            containerVenues.removeClass('hidden')
+
+            update.venues(`${api}/venue`)
+        },
         'gallery': () => {
             clear('gallery')
             container.data('context', 'gallery')
@@ -218,6 +241,7 @@ Meteor.startup(() => {
     navResults.click(() => contextSet.results())
     navSchedule.click(() => contextSet.schedule())
     navContigents.click(() => contextSet.contingents())
+    navVenues.click(() => contextSet.venues())
     navGallery.click(() => contextSet.gallery())
     navVisiting.click(() => contextSet.visiting())
 
@@ -243,5 +267,5 @@ Meteor.startup(() => {
         }
     })
 
-    contextSet.schedule()
+    contextSet.venues()
 })

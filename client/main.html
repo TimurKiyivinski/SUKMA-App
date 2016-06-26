@@ -16,6 +16,7 @@
         </div>
         <div id="container-schedule" class="container-context row"></div>
         <div id="container-contingents" class="container-context row"></div>
+        <div id="container-venues" class="container-context row"></div>
         <div id="container-gallery" class="container-context row sukma-gallery" data-next="null" data-prev="null"></div>
         <div id="container-visiting" class="container-context row"></div>
     </div>
@@ -49,6 +50,9 @@
                     </a></li>
                     <li><a href="#" id="nav_contingents">
                             Contingents
+                    </a></li>
+                    <li><a href="#" id="nav_venues">
+                            Venues
                     </a></li>
                     <li><a href="#" id="nav_gallery">
                             Gallery
@@ -174,6 +178,20 @@
             <li class="list-group-item"><span class="label label-data-perasmian-penutup"> Perasmian/Penutup</span></li>
             <li class="list-group-item"><span class="label label-data-majlis-pnp-rasmi"> Majlis Perasmian dan Penutupan Rasmi SUKMA XVIII SARAWAK 2016</span></li>
         </ul>
+    </div>
+    </div>
+</template>
+
+<template name="venue">
+    <div class="col-xs-12">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            {{{ name }}}
+        </div>
+        <a href="#" onclick="window.open('http://maps.google.com/maps?daddr={{latitude}},{{longitude}}', '_system')">
+            <img class="img-responsive" src="{{ photo }}"/>
+            <span class="venue-map fa fa-2x fa-map"></span>
+        </a>
     </div>
     </div>
 </template>

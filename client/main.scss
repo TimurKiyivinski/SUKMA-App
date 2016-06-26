@@ -269,6 +269,13 @@ $column-gap: 0px;
     }
 }
 
+.venue-map {
+    color: $white;
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+}
+
 .sukma-gallery img {
   /* Just in case there are inline attributes */
   width: 100% !important;
