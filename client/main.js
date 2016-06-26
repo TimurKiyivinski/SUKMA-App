@@ -13,18 +13,20 @@ Meteor.startup(() => {
     const container = $('#container')
     const containerHome = $('#container-home')
     const containerHighlight = $('#container-highlight')
+    const containerResults = $('#container-results')
     const containerSchedule = $('#container-schedule')
     const containerContingents = $('#container-contingents')
     const containerGallery = $('#container-gallery')
     const containerVisiting = $('#container-visiting')
 
     // Navigation links
-    const navHome = $('#nav1')
-    const navHighlight = $('#nav2')
-    const navSchedule = $('#nav3')
-    const navContigents = $('#nav4')
-    const navGallery = $('#nav5')
-    const navVisiting = $('#nav6')
+    const navHome = $('#nav_home')
+    const navHighlight = $('#nav_news')
+    const navResults = $('#nav_results')
+    const navSchedule = $('#nav_schedule')
+    const navContigents = $('#nav_contingents')
+    const navGallery = $('#nav_gallery')
+    const navVisiting = $('#nav_visiting')
 
     const highlight_click = (e, t) => {
         const target = $(e.target)
@@ -134,6 +136,8 @@ Meteor.startup(() => {
                 update.loading(false)
             })
         },
+        'results': () => {
+        },
         // Refreshes schedule
         'schedule': (url) => {
             $.get(url, (response) => {
@@ -175,6 +179,11 @@ Meteor.startup(() => {
 
             update.highlight(`${api}/highlight`)
         },
+        'results': () => {
+            container.data('context', 'results')
+            hideContainers()
+            containerResults.removeClass('hidden')
+        },
         'schedule': () => {
             clear('schedule')
             container.data('context', 'schedule')
@@ -206,6 +215,7 @@ Meteor.startup(() => {
     // Set navigation button actions
     navHome.click(() => contextSet.home())
     navHighlight.click(() => contextSet.highlight())
+    navResults.click(() => contextSet.results())
     navSchedule.click(() => contextSet.schedule())
     navContigents.click(() => contextSet.contingents())
     navGallery.click(() => contextSet.gallery())
@@ -233,5 +243,5 @@ Meteor.startup(() => {
         }
     })
 
-    contextSet.highlight()
+    contextSet.results()
 })

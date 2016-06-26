@@ -11,6 +11,9 @@
             {{> home }}
         </div>
         <div id="container-highlight" class="container-context row" data-next="null" data-prev="null"></div>
+        <div id="container-results" class="container-context row">
+            {{> results }}
+        </div>
         <div id="container-schedule" class="container-context row"></div>
         <div id="container-contingents" class="container-context row"></div>
         <div id="container-gallery" class="container-context row sukma-gallery" data-next="null" data-prev="null"></div>
@@ -32,22 +35,25 @@
             </div>
             <div class="collapse navbar-collapse" id="mobileNav">
                 <ul class="nav navbar-nav">
-                    <li><a href="#" id="nav1">
+                    <li><a href="#" id="nav_home">
                             Home
                     </a></li>
-                    <li><a href="#" id="nav2">
+                    <li><a href="#" id="nav_news">
                             News
                     </a></li>
-                    <li><a href="#" id="nav3">
+                    <li><a href="#" id="nav_results">
+                            Results
+                    </a></li>
+                    <li><a href="#" id="nav_schedule">
                             Schedule
                     </a></li>
-                    <li><a href="#" id="nav4">
+                    <li><a href="#" id="nav_contingents">
                             Contingents
                     </a></li>
-                    <li><a href="#" id="nav5">
+                    <li><a href="#" id="nav_gallery">
                             Gallery
                     </a></li>
-                    <li><a href="#" id="nav6">
+                    <li><a href="#" id="nav_visiting">
                             Visiting
                     </a></li>
                 </ul>
@@ -108,6 +114,10 @@
         </div>
     </div>
     </div>
+</template>
+
+<template name="results">
+    <iframe class="embed-results" src="http://gms.sukmasarawak2016.my/RS2016" width="100%" height="100%"></iframe>
 </template>
 
 <template name="gallery">

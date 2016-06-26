@@ -167,44 +167,6 @@ footer
 }
 a:hover { text-decoration: none; }
 
-// custom navbar coloring
-#nav1:hover, #nav2:hover,
-#nav3:hover, #nav4:hover,
-#nav5:hover, #nav6:hover,
-#nav7:hover, #nav8:hover
-{
-  background-color: #FBFBFB;
-  transition: background-color 0s ease;
-}
-
-/*
-  Individual List Colored Underline
---------------------*/
-#nav1:hover{
-  box-shadow: inset 0 -10px 0 hotpink;
-}
-#nav2:hover{
-  box-shadow: inset 0 -10px 0 #FBB70F;
-}
-#nav3:hover{
-  box-shadow: inset 0 -10px 0 #73C53E;
-}
-#nav4:hover{
-  box-shadow: inset 0 -10px 0 #4385F6;
-}
-#nav5:hover{
-  box-shadow: inset 0 -10px 0 #61009C;
-}
-#nav6:hover{
-  box-shadow: inset 0 -10px 0 #FBB70F;
-}
-#nav7:hover{
-  box-shadow: inset 0 -10px 0 #73C53E;
-}
-#nav8:hover{
-  box-shadow: inset 0 -10px 0 #4385F6;
-}
-
 // Scrollable Dropdowns
 .dropdown-scroll
 {
@@ -277,6 +239,12 @@ $cell-sudah-dilaksanakan: #ff0000;
   display: inline;
 }
 
+.embed-results {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+
 $column-count: 1;
 $column-count-sm: 2;
 $column-count-md: 3;
@@ -293,6 +261,12 @@ $column-gap: 0px;
   -moz-column-gap: $column-gap;
   column-count: $column-count;
   column-gap: $column-gap;
+}
+
+#container {
+    &-results {
+        height: 768px;
+    }
 }
 
 .sukma-gallery img {
