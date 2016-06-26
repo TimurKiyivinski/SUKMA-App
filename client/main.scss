@@ -374,3 +374,14 @@ $column-gap: 0px;
         }
     }
 }
+
+.media {
+    border: 2px solid $brand-primary;
+    padding: 5px;
+    margin-bottom: 5px;
+
+    img {
+        min-width: 100px;
+        width: 100px;
+    }
+}

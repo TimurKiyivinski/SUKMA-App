@@ -17,8 +17,11 @@
         </div>
         <div id="container-gallery" class="container-context row sukma-gallery" data-next="null" data-prev="null"></div>
         <div id="container-visiting" class="container-context row"></div>
-        <div id="container-videos" class="container-context row"></div>
-        <div id="container-medaltally" class="container-context row"></div>
+        <div id="container-videos" class="container-context row">
+            {{> videos}}
+        </div>
+        <div id="container-medaltally" class="container-context row">
+        </div>
         <div id="container-socialmedia" class="container-context row">
             {{> socialmedia}}
         </div>
@@ -256,6 +259,81 @@
             </a>
         </div>
         <!-- END ROW 2 -->
+    </div>
+</template>
+
+<template name="videos">
+    <div class="container">
+        <!-- Sample 1 -->
+        <a class="text-muted" href="#">
+            <div class="media">
+                <div class="media-left">
+                    <div class="thumbnail" href="#">
+                        <img class="media-object" src="/images/akuatik.png"/>
+                    </div>
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">
+                        Maskot Akuatik SUKMA 2016 <br>
+                        <small><span>
+                            17/08/2016 2.00PM <br>
+                            Rabu
+                        </span></small>
+                    </h4>
+                </div>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                </p>
+            </div>
+        </a>
+        <!-- Sample 2 -->
+        <a class="text-muted" href="#">
+            <div class="media">
+                <div class="media-left">
+                    <div class="thumbnail" href="#">
+                        <img class="media-object" src="/images/akuatik.png"/>
+                    </div>
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">
+                        Maskot Akuatik SUKMA 2016 <br>
+                        <small><span>
+                            17/08/2016 2.00PM <br>
+                            Rabu
+                        </span></small>
+                    </h4>
+                </div>
+                <!-- the description is under the media-left and media-body but still in media border -->
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                </p>
+            </div>
+        </a>
+        <!-- Sample 3 -->
+        <a class="text-muted" href="#">
+            <div class="media">
+                <div class="media-left">
+                    <div class="thumbnail" href="#">
+                        <img class="media-object" src="/images/akuatik.png"/>
+                    </div>
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">
+                        Maskot Akuatik SUKMA 2016 <br>
+                        <small><span>
+                            17/08/2016 2.00PM <br>
+                            Rabu
+                        </span></small>
+                    </h4>
+                </div>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                </p>
+            </div>
+        </a>
     </div>
 </template>
 
