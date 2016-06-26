@@ -109,3 +109,64 @@
     <img src="{{ url }}" alt="Test">
     {{/HammerTouchArea}}
 </template>
+
+<template name="schedule">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            JADUAL TENTATIF ACARA SUKAN SUKMA SARAWAK 2016
+        </div>
+        <div id="schedule" class="table-responsive text-center">
+            <table class="table table-bordered table-hover">
+                <tbody id="tbody">
+                <tr class="info">
+                    <th rowspan="2"></th>
+                    <th rowspan="2"><p class="text-center">Sukan</p></th>
+                    <th colspan="15"><p class="text-center">Julai 2016</p></th>
+                    <th rowspan="2"><p class="text-center">Tarikh</p></th>
+                </tr>
+                <tr class="info">
+                    <td>17</td>
+                    <td>18</td>
+                    <td>19</td>
+                    <td>20</td>
+                    <td>21</td>
+                    <td>22</td>
+                    <td>23</td>
+                    <td>24</td>
+                    <td>25</td>
+                    <td>26</td>
+                    <td>27</td>
+                    <td>28</td>
+                    <td>29</td>
+                    <td>30</td>
+                    <td>31</td>
+                </tr>
+                {{#each sport in data}}
+                <tr>
+                    <td>{{{ sport.number }}}</td>
+                    <td>{{{ sport.name }}}</td>
+                    {{{ sport.schedule }}}
+                </tr>
+                {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div id="legend" class="panel panel-info">
+                <div class="panel-heading">
+                    LEGEND
+                </div>
+                <ul class="list-group">
+                    <li class="list-group-item"><span class="label label-data-pendaftaran"> Pendaftaran</span></li>
+                    <li class="list-group-item"><span class="label label-data-mesyuarat-pengurus"> Mesyuarat Pengurus</span></li>
+                    <li class="list-group-item"><span class="label label-data-pertandingan"> Pertandingan</span></li>
+                    <li class="list-group-item"><span class="label label-data-perasmian-penutup"> Perasmian/Penutup</span></li>
+                    <li class="list-group-item"><span class="label label-data-majlis-pnp-rasmi"> Majlis Perasmian dan Penutupan Rasmi SUKMA XVIII SARAWAK 2016</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</template>

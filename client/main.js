@@ -134,6 +134,12 @@ Meteor.startup(() => {
                 update.loading(false)
             })
         },
+        // Refreshes schedule
+        'schedule': (url) => {
+            $.get(url, (response) => {
+                Blaze.renderWithData(Template.schedule, response, containerSchedule[0])
+            })
+        },
         // Refreshes gallery
         'gallery': (url) => {
             $.get(url, (response) => {
@@ -162,6 +168,7 @@ Meteor.startup(() => {
             containerHome.removeClass('hidden')
         },
         'highlight': () => {
+            clear('highlight')
             container.data('context', 'highlight')
             hideContainers()
             containerHighlight.removeClass('hidden')
@@ -169,9 +176,12 @@ Meteor.startup(() => {
             update.highlight(`${api}/highlight`)
         },
         'schedule': () => {
+            clear('schedule')
             container.data('context', 'schedule')
             hideContainers()
             containerSchedule.removeClass('hidden')
+
+            update.schedule(`${api}/sport`)
         },
         'contingents': () => {
             container.data('context', 'contingents')
@@ -179,6 +189,7 @@ Meteor.startup(() => {
             containerContingents.removeClass('hidden')
         },
         'gallery': () => {
+            clear('gallery')
             container.data('context', 'gallery')
             hideContainers()
             containerGallery.removeClass('hidden')
