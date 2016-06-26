@@ -67,8 +67,13 @@
         <div class="panel-heading">
             {{ title }}
         </div>
-        <div class="panel-body">
-            {{{ data }}}
+        <div class="panel-body panel-body-container">
+            <div class="panel-body-compress collapse in">
+                <i>{{{ min }}}...</i>
+            </div>
+            <div class="panel-body-full collapse">
+                {{{ data }}}
+            </div>
         </div>
     </div>
     </div>

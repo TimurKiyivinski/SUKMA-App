@@ -26,6 +26,25 @@ Meteor.startup(() => {
     const navGallery = $('#nav5')
     const navVisiting = $('#nav6')
 
+    const highlight_click = (e, t) => {
+        const target = $(e.target)
+        if (target.is('a')) {
+            window.open(target.attr('href'), '_system')
+        } else {
+            const body = target.parents('.panel-body-container')
+            const compress = body.find('.panel-body-compress')
+            const full = body.find('.panel-body-full')
+
+            if (compress.hasClass('in')) {
+                compress.removeClass('in')
+                full.addClass('in')
+            } else {
+                full.removeClass('in')
+                compress.addClass('in')
+            }
+        }
+    }
+
     Template.gallery.helpers({
         destroy: () => {
             this.dom.remove()
@@ -48,29 +67,12 @@ Meteor.startup(() => {
         }
     })
 
-    Template.highlight_photo.onCreated(() => {
-        $(this).click(() => {
-        })
+    Template.highlight_photo.events({
+        'click .panel': highlight_click
     })
 
-    Template.highlight_photo.events({
-        'click .panel': (e, t) => {
-            const body = $(e.target).parents('.panel-body-container')
-            const compress = body.find('.panel-body-compress')
-            const full = body.find('.panel-body-full')
-
-            console.log(body)
-            console.log(compress)
-            console.log(full)
-
-            if (compress.hasClass('in')) {
-                compress.removeClass('in')
-                full.addClass('in')
-            } else {
-                full.removeClass('in')
-                compress.addClass('in')
-            }
-        }
+    Template.highlight.events({
+        'click .panel': highlight_click
     })
 
     // Hide all contextual containers
