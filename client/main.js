@@ -30,6 +30,8 @@ Meteor.startup(() => {
     const navGallery = $('#nav_gallery')
     const navVisiting = $('#nav_visiting')
 
+    const closeNav = () => $('#mobileNav').removeClass('in')
+
     const highlight_click = (e, t) => {
         const target = $(e.target)
         if (target.is('a')) {
@@ -140,8 +142,10 @@ Meteor.startup(() => {
         },
         // Refreshes schedule
         'schedule': (url) => {
+            update.loading(true)
             $.get(url, (response) => {
                 Blaze.renderWithData(Template.schedule, response, containerSchedule[0])
+                update.loading(false)
             })
         },
         // Refreshes gallery
@@ -236,14 +240,14 @@ Meteor.startup(() => {
     }
 
     // Set navigation button actions
-    navHome.click(() => contextSet.home())
-    navHighlight.click(() => contextSet.highlight())
-    navResults.click(() => contextSet.results())
-    navSchedule.click(() => contextSet.schedule())
-    navContigents.click(() => contextSet.contingents())
-    navVenues.click(() => contextSet.venues())
-    navGallery.click(() => contextSet.gallery())
-    navVisiting.click(() => contextSet.visiting())
+    navHome.click(() => closeNav() && contextSet.home())
+    navHighlight.click(() => closeNav() && contextSet.highlight())
+    navResults.click(() => closeNav() && contextSet.results())
+    navSchedule.click(() => closeNav() && contextSet.schedule())
+    navContigents.click(() => closeNav() && contextSet.contingents())
+    navVenues.click(() => closeNav() && contextSet.venues())
+    navGallery.click(() => closeNav() && contextSet.gallery())
+    navVisiting.click(() => closeNav() && contextSet.visiting())
 
     $(window).scroll(() => {
         // Bottom
