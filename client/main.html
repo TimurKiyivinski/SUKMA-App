@@ -204,6 +204,180 @@
 </template>
 
 <template name="home">
+    <div class="container">
+        <!-- ROW 1: CAROUSEL: LIVE UPDATE -->
+        <h4 class="text-center text-primary">LIVE UPDATES</h4>
+        <div class="row home-liveupdate">
+            <!-- COL 1 -->
+            <div class="panel-highlight col-xs-12 col-md-3">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <b>TITLE</b>
+                        <small><em>DATE</em></small>
+                    </div>
+                    <div class="panel-body panel-body-container">
+                        <div class="panel-body-compress collapse in">
+                            <i>ELLIPSIS...</i>
+                            <span class="text-danger"><small><em>Read more</em></small></span>
+                        </div>
+                        <div class="panel-body-full collapse">
+                            ELLIPSIS JUST GOT LONGER
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- COL 2 -->
+            <div class="panel-highlight col-xs-12 col-md-3">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <b>TITLE</b>
+                        <small><em>DATE</em></small>
+                    </div>
+                    <div class="panel-body panel-body-container">
+                        <div class="panel-body-compress collapse in">
+                            <i>ELLIPSIS...</i>
+                            <span class="text-danger"><small><em>Read more</em></small></span>
+                        </div>
+                        <div class="panel-body-full collapse">
+                            ELLIPSIS JUST GOT LONGER
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- COL 3 -->
+            <div class="panel-highlight col-xs-12 col-md-3">
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <b>TITLE</b>
+                        <small><em>DATE</em></small>
+                    </div>
+                    <div class="panel-body panel-body-container">
+                        <div class="panel-body-compress collapse in">
+                            <i>ELLIPSIS...</i>
+                            <span class="text-danger"><small><em>Read more</em></small></span>
+                        </div>
+                        <div class="panel-body-full collapse">
+                            ELLIPSIS JUST GOT LONGER
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- END COL 3 -->
+        </div>
+
+        <div class="spacing-fix"></div>
+
+        <!-- ROW 2: TAB: MEDAL TALLY -->
+        <div class="row home-medaltally">
+            <h4 class="text-center text-primary">TOP 3 CONTINGENTS</h4>
+            <ul class="nav nav-tabs">
+                <li class="active"><a data-toggle="pill" href="#gold-medalist">
+                    <span>
+                        <span><img class="contingents-flag" src="/states/Sarawak.png"/></span> SWK
+                    </span>
+                </a></li>
+                <li><a data-toggle="pill" href="#silver-medalist">
+                    <span>
+                        <span><img class="contingents-flag" src="/states/Sabah.png"/></span> SBH
+                    </span>
+                </a></li>
+                <li><a data-toggle="pill" href="#bronze-medalist">
+                    <span>
+                        <span><img class="contingents-flag" src="/states/Johor.png"/></span> JHR
+                    </span>
+                </a></li>
+            </ul>
+
+            <div class="tab-content">
+                <!-- TAB 1 GOLD MEDALIST -->
+                <div id="gold-medalist" class="tab-pane fade in active">
+                    <div class="container text-center">
+                        <h5>
+                            <span> <img class="contingents-flag-2x" src="/states/Sarawak.png"/></span>
+                            SARAWAK
+                        </h5>
+                        <h4>
+                            <span class="fa fa-trophy fa-2x bronze"><br>
+                                <h4>20</h4>
+                            </span>
+                            <span class="fa fa-trophy fa-2x silver"><br>
+                                <h4>40</h4>
+                            </span>
+                            <span class="fa fa-trophy fa-2x gold"><br>
+                                <h4>40</h4>
+                            </span>
+                        </h4>
+                        <h5>1ST RANK WITH <span class="fa fa-trophy gold">100</span> TOTAL MEDAL</h5>
+                    </div>
+                </div>
+                <!-- TAB 2 SILVER MEDALIST -->
+                <div id="silver-medalist" class="tab-pane fade">
+                    <div class="container text-center">
+                        <h5>
+                            <span> <img class="contingents-flag-2x" src="/states/Sabah.png"/></span>
+                            SABAH
+                        </h5>
+                        <h4>
+                            <span class="fa fa-trophy fa-2x bronze"><br>
+                                <h4>40</h4>
+                            </span>
+                            <span class="fa fa-trophy fa-2x silver"><br>
+                                <h4>30</h4>
+                            </span>
+                            <span class="fa fa-trophy fa-2x gold"><br>
+                                <h4>20</h4>
+                            </span>
+                        </h4>
+                        <h5>2ND RANK WITH <span class="fa fa-trophy silver">90</span> TOTAL MEDAL</h5>
+                    </div>
+                </div>
+                <!-- TAB 3 BRONZE MEDALIST -->
+                <div id="bronze-medalist" class="tab-pane fade">
+                    <div class="container text-center">
+                        <h5>
+                            <span> <img class="contingents-flag-2x" src="/states/Johor.png"/></span>
+                            JOHOR
+                        </h5>
+                        <h4>
+                            <span class="fa fa-trophy fa-2x bronze"><br>
+                                <h4>30</h4>
+                            </span>
+                            <span class="fa fa-trophy fa-2x silver"><br>
+                                <h4>30</h4>
+                            </span>
+                            <span class="fa fa-trophy fa-2x gold"><br>
+                                <h4>20</h4>
+                            </span>
+                        </h4>
+                        <h5>3RD RANK WITH <span class="fa fa-trophy bronze">80</span> TOTAL MEDAL</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="spacing-fix"></div>
+
+        <!-- ROW 3: SOCIAL MEDIA -->
+        <div class="row home-socialmedia">
+            <div class="container text-center">
+                <h4 class="text-primary">SOCIAL MEDIA</h4>
+                <a class="btn btn-primary btn-facebook" href="https://www.facebook.com/SUKMA2016">
+                    <span class="fa fa-2x fa-facebook"></span>
+                </a>
+                <a class="btn btn-primary btn-twitter" href="https://twitter.com/sukma_2016_swk">
+                    <span class="fa fa-2x fa-twitter"></span>
+                </a>
+                <a class="btn btn-primary btn-instagram" href="https://www.instagram.com/sukmasarawak2016/">
+                    <span class="fa fa-2x fa-instagram"></span>
+                </a>
+                <a class="btn btn-primary btn-youtube" href="https://www.youtube.com/channel/UCtUjedBFRQudHOTJJwmE68Q">
+                    <span class="fa fa-2x fa-youtube"></span>
+                </a>
+            </div>
+        </div>
+
+        <div class="spacing-fix"></div>
+    </div>
 </template>
 
 <template name="contingents">
