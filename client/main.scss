@@ -1,6 +1,9 @@
 $black: #000;
 $white: #FFF;
 $panel-img: #1c88bd;
+$gold: #DAA520;
+$silver: #C0C0C0;
+$bronze: #CD7F32;
 
 // Custom bootstrap variables
 $brand-primary: #2CA5E0;
@@ -42,6 +45,9 @@ $scroll-height: 400px;
 
 .white { color: $white; }
 .text-primary { color: $brand-primary; }
+.gold { color: $gold; }
+.silver { color: $silver; }
+.bronze { color: $bronze; }
 
 body
 {

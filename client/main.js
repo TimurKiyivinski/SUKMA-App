@@ -140,6 +140,14 @@ Meteor.startup(() => {
                 $('#btn-loading').addClass('hidden')
             }
         },
+        // Refreshes schedule
+        'home': (url) => {
+            update.loading(true)
+            $.get(url, (response) => {
+                Blaze.renderWithData(Template.home, response, containerHome[0])
+                update.loading(false)
+            })
+        },
         // Refreshes highlights
         'highlight': (url) => {
             $.get(url, (response) => {
@@ -229,9 +237,12 @@ Meteor.startup(() => {
     // Sets current application context
     const contextSet = {
         'home': () => {
+            clear('highlight')
             container.data('context', 'home')
             hideContainers()
             containerHome.removeClass('hidden')
+
+            update.home(`${api}/state`)
         },
         'highlight': () => {
             clear('highlight')
@@ -317,5 +328,5 @@ Meteor.startup(() => {
         }
     })
 
-    contextSet.contingents()
+    contextSet.home()
 })
