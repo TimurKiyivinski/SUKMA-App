@@ -41,6 +41,7 @@ $scroll-height: 400px;
 }
 
 .white { color: $white; }
+.text-primary { color: $brand-primary; }
 
 body
 {
@@ -271,14 +272,14 @@ $column-gap: 0px;
     }
 }
 
-.venue-map {
-    color: $white;
+.panel-float-icon {
+    color: $brand-primary;
     position: absolute;
     bottom: 30px;
     right: 30px;
     &:hover {
         @extend .venue-map;
-        color: $brand-primary;
+        color: $brand-success;
     }
 }
 

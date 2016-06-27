@@ -182,6 +182,38 @@
     </div>
 </template>
 
+<template name="contingent">
+    <div class="col-xs-12">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            {{ name }}
+        </div>
+        <div class="panel-body">
+            {{{ data }}}
+        </div>
+    </div>
+    </div>
+</template>
+
+<template name="contingent_photo">
+    <div class="col-xs-12">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            {{ name }}
+        </div>
+        <div class="panel-body panel-body-container">
+            <span class="panel-float-icon fa fa-2x fa-arrow-circle-down text-primary"></span>
+            <div class="panel-body-logo row">
+                <img class="col-xs-offset-2 col-xs-8" src="{{ photo }}"/>
+            </div>
+            <div class="panel-body panel-body-full row collapse">
+                {{{ data }}}
+            </div>
+        </div>
+    </div>
+    </div>
+</template>
+
 <template name="venue">
     <div class="col-xs-12">
     <div class="panel panel-primary">
@@ -197,7 +229,7 @@
         </div>
         <a href="#" onclick="window.open('http://maps.google.com/maps?daddr={{latitude}},{{longitude}}', '_system')">
             <img class="img-responsive" src="{{ photo }}"/>
-            <span class="venue-map fa fa-2x fa-map"></span>
+            <span class="panel-float-icon fa fa-2x fa-map"></span>
         </a>
     </div>
     </div>

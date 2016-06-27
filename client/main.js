@@ -51,6 +51,26 @@ Meteor.startup(() => {
         }
     }
 
+    const contingent_click = (e, t) => {
+        const target = $(e.target)
+        if (target.is('a')) {
+            window.open(target.attr('href'), '_system')
+        } else {
+            const body = target.parents('.panel-body-container')
+            const logo = body.find('.panel-body-logo')
+            const full = body.find('.panel-body-full')
+            const arrow = body.find('.panel-float-icon')
+
+            if (full.hasClass('in')) {
+                full.removeClass('in')
+                arrow.removeClass('fa-rotate-180')
+            } else {
+                full.addClass('in')
+                arrow.addClass('fa-rotate-180')
+            }
+        }
+    }
+
     Template.gallery.helpers({
         destroy: () => {
             this.dom.remove()
@@ -90,6 +110,10 @@ Meteor.startup(() => {
 
     Template.highlight.events({
         'click .panel': highlight_click
+    })
+
+    Template.contingent_photo.events({
+        'click .panel': contingent_click
     })
 
     // Hide all contextual containers
@@ -148,12 +172,31 @@ Meteor.startup(() => {
                 update.loading(false)
             })
         },
-        // Refreshes gallery
+        // Refreshes states
+        'contingents': (url) => {
+            update.loading(true)
+            $.get(url, (response) => {
+                const data = response.data
+
+                // Render each instance of contingent
+                data.forEach((state) => {
+                    if (state.photo != "https://sukmasarawak2016.my/") {
+                        Blaze.renderWithData(Template.contingent_photo, state, containerContingents[0])
+                    } else {
+                        Blaze.renderWithData(Template.contingent, state, containerContingents[0])
+                    }
+                })
+
+                // Remove loading icon
+                update.loading(false)
+            })
+        },
+        // Refreshes venues
         'venues': (url) => {
             $.get(url, (response) => {
                 const data = response.data
 
-                // Render each instance of highlight
+                // Render each instance of venue
                 data.forEach((venue) => {
                     venue.photo = venue.photos[0].url
                     Blaze.renderWithData(Template.venue, venue, containerVenues[0])
@@ -172,7 +215,7 @@ Meteor.startup(() => {
                 containerGallery.data('next', data.next_page_url)
                 containerGallery.data('prev', data.prev_page_url)
 
-                // Render each instance of highlight
+                // Render each instance of photo
                 data.data.forEach((image) => {
                     Blaze.renderWithData(Template.gallery, image, containerGallery[0])
                 })
@@ -212,9 +255,12 @@ Meteor.startup(() => {
             update.schedule(`${api}/sport`)
         },
         'contingents': () => {
+            clear('contingents')
             container.data('context', 'contingents')
             hideContainers()
             containerContingents.removeClass('hidden')
+
+            update.contingents(`${api}/state`)
         },
         'venues': () => {
             clear('venues')
@@ -271,5 +317,5 @@ Meteor.startup(() => {
         }
     })
 
-    contextSet.venues()
+    contextSet.contingents()
 })
