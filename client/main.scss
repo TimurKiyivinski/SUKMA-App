@@ -40,6 +40,8 @@ $scroll-height: 400px;
   fieldset { display: table-cell; }
 }
 
+.white { color: $white; }
+
 body
 {
     background-repeat: no-repeat;
@@ -274,6 +276,10 @@ $column-gap: 0px;
     position: absolute;
     bottom: 30px;
     right: 30px;
+    &:hover {
+        @extend .venue-map;
+        color: $brand-primary;
+    }
 }
 
 .sukma-gallery img {
