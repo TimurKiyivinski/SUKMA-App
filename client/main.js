@@ -237,7 +237,7 @@ Meteor.startup(() => {
     // Sets current application context
     const contextSet = {
         'home': () => {
-            clear('highlight')
+            clear('home')
             container.data('context', 'home')
             hideContainers()
             containerHome.removeClass('hidden')
