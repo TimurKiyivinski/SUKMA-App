@@ -18,7 +18,9 @@
         <div id="container-contingents" class="container-context row"></div>
         <div id="container-venues" class="container-context row"></div>
         <div id="container-gallery" class="container-context row sukma-gallery" data-next="null" data-prev="null"></div>
-        <div id="container-visiting" class="container-context row"></div>
+        <div id="container-visiting" class="container-context row">
+            {{> visiting }}
+        </div>
     </div>
     {{> loading }}
 </body>
@@ -37,28 +39,28 @@
             <div class="collapse navbar-collapse" id="mobileNav">
                 <ul class="nav navbar-nav">
                     <li><a href="#" id="nav_home">
-                            Home
+                            <span class="fa fa-home"></span> Home
                     </a></li>
                     <li><a href="#" id="nav_news">
-                            News
+                            <span class="fa fa-newspaper-o"></span> News
                     </a></li>
                     <li><a href="#" id="nav_results">
-                            Results
+                            <span class="fa fa-trophy"></span> Results
                     </a></li>
                     <li><a href="#" id="nav_schedule">
-                            Schedule
+                            <span class="fa fa-calendar"></span> Schedule
                     </a></li>
                     <li><a href="#" id="nav_contingents">
-                            Contingents
+                            <span class="fa fa-flag"></span> Contingents
                     </a></li>
                     <li><a href="#" id="nav_venues">
-                            Venues
+                            <span class="fa fa-map-o"></span> Venues
                     </a></li>
                     <li><a href="#" id="nav_gallery">
-                            Gallery
+                            <span class="fa fa-camera-retro"></span> Gallery
                     </a></li>
                     <li><a href="#" id="nav_visiting">
-                            Visiting
+                            <span class="fa fa-map-marker"></span> Visiting
                     </a></li>
                 </ul>
             </div>
@@ -74,7 +76,6 @@
 </template>
 
 <template name="home">
-    <iframe class="embed-responsive-item" src="http://gms.sukmasarawak2016.my/RS2016"></iframe>
 </template>
 
 <template name="highlight">
@@ -251,5 +252,86 @@
                 </div>
             </div>
         </div>
+    </div>
+</template>
+
+<template name="visiting">
+    <div class="row">
+        <!-- KUCHING -->
+        <div class="col-xs-12">
+            <div id="sukma-visiting" class="panel panel-primary">
+                <div class="panel-heading">KUCHING</div>
+                <div class="panel-body">
+                    <img class="img-responsive col-xs-12" src="http://sarawaktourism.com/v2/wp-content/uploads/2014/02/small-kuching.jpg">
+                    <div class="col-xs-12">
+                        <h2>KUCHING</h2>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                        </p>
+                        <div class="btn-group btn-group-justified" role="group">
+                            <div class="btn-group" role="group">
+                                <a href="http://sarawaktourism.com/kuching/" type="button" class="btn btn-success">Sarawak Tourism</a>
+                            </div>
+                            <div class="btn-group" role="group">
+                                <a href="https://www.tripadvisor.com.my/Tourism-g298309-Kuching_Sarawak-Vacations.html" type="button" class="btn btn-primary">Trip Advisor</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- SIBU -->
+        <div class="col-xs-12">
+            <div id="sukma-visiting" class="panel panel-primary">
+                <div class="panel-heading">SIBU</div>
+                <div class="panel-body">
+                    <img class="img-responsive col-xs-12" src="http://sarawaktourism.com/v2/wp-content/uploads/2014/02/small-sibu.jpg">
+                    <div class="col-xs-12">
+                        <h2>SIBU</h2>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                        </p>
+                        <div class="btn-group btn-group-justified" role="group">
+                            <div class="btn-group" role="group">
+                                <a href="http://sarawaktourism.com/attraction/sibu/" type="button" class="btn btn-success">Sarawak Tourism</a>
+                            </div>
+                            <div class="btn-group" role="group">
+                                <a href="https://www.tripadvisor.com.my/Tourism-g1055332-Sibu_Sarawak-Vacations.html" type="button" class="btn btn-primary">Trip Advisor</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- MIRI -->
+        <div class="col-xs-12">
+            <div id="sukma-visiting" class="panel panel-primary">
+                <div class="panel-heading">MIRI</div>
+                <div class="panel-body">
+                    <img class="img-responsive col-xs-12" src="http://sarawaktourism.com/v2/wp-content/uploads/2014/02/small-miri.jpg">
+                    <div class="col-xs-12">
+                        <h2>MIRI</h2>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                        </p>
+                        <div class="btn-group btn-group-justified" role="group">
+                            <div class="btn-group" role="group">
+                                <a href="http://sarawaktourism.com/attractions_location/miri/" type="button" class="btn btn-success">Sarawak Tourism</a>
+                            </div>
+                            <div class="btn-group" role="group">
+                                <a href="https://www.tripadvisor.com.my/Tourism-g303998-Miri_Miri_District_Sarawak-Vacations.html" type="button" class="btn btn-primary">Trip Advisor</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 </template>
